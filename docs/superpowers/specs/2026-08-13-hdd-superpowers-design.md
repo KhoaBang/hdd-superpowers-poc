@@ -1,8 +1,14 @@
 # HDD-Superpowers Design Spec
 
-**Status:** Draft — pending user review
+**Status:** Approved, implemented — post-implementation correction applied (see note)
 **Date:** 2026-08-13
 **Scope:** PoC (4 skills), filesystem-only storage, delivered as a loose skill pack
+
+**Correction (post-implementation review):** §5.4's HARD-GATE originally read "if the evidence
+*contradicts* disconfirming_observation, REFUTED" — backwards, since disconfirming_observation
+is already defined (§4.1) as the pattern that would kill the claim; evidence *matching* it is
+what refutes. Fixed below to "matches". The shipped `deciding-hypotheses/SKILL.md` already used
+the correct wording — this file was the one with the bug.
 
 ## 1. Goal
 
@@ -287,7 +293,7 @@ needs a final outcome."
 **HARD-GATE:**
 ```
 Do NOT weaken, reinterpret, or replace the hypothesis after seeing evidence.
-If the evidence contradicts disconfirming_observation, the result is REFUTED.
+If the evidence matches disconfirming_observation, the result is REFUTED.
 A revised claim is a NEW hypothesis — create it via framing-hypotheses, never
 by editing the refuted HYP-NNN.
 ```
