@@ -10,6 +10,31 @@ the person who gave you this pack for it.
 
 ## Install
 
+### Option A — from GitHub, as a Claude Code plugin (recommended)
+
+This repo doubles as a plugin marketplace, so Claude Code can install the pack straight from
+the GitHub link. In Claude Code, run:
+
+    /plugin marketplace add KhoaBang/hdd-superpowers-poc
+    /plugin install hdd-superpowers@hdd-superpowers-poc
+
+`marketplace add` also accepts the full URL (`https://github.com/KhoaBang/hdd-superpowers-poc`)
+if you prefer, or a local path to a clone of this repo. Update later with:
+
+    /plugin marketplace update hdd-superpowers-poc
+
+The four skills are then discovered from the plugin's `skills/` folder — nothing needs to be
+copied into `~/.claude/skills/`.
+
+### Option B — from GitHub, by cloning into your skills directory
+
+If your runtime does not support plugins, clone the repo and copy the skill folders in:
+
+    git clone https://github.com/KhoaBang/hdd-superpowers-poc.git /tmp/hdd-poc
+    cp -r /tmp/hdd-poc/hdd-superpowers/skills/* ~/.claude/skills/
+
+### Option C — from the packaged bundle
+
 Extract the *contents* of this bundle's `skills/` folder — the four `<name>/` folders
 themselves, not the `skills/` folder wrapping them — into your personal skills directory
 (`~/.claude/skills/`), so you end up with:

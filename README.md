@@ -10,6 +10,17 @@ Grounded in 7 invariants distilled from 5 sources (MIT CISR's "learn fast, not f
 Hypothesis-Driven Skill Optimization; the Hypothesis Evolution Protocol; SkillHEX;
 SkillHone) — see the design spec for full attribution.
 
+## Install from GitHub
+
+This repo is also a Claude Code plugin marketplace (`.claude-plugin/marketplace.json`), so the
+skill pack installs directly from the GitHub link:
+
+    /plugin marketplace add KhoaBang/hdd-superpowers-poc
+    /plugin install hdd-superpowers@hdd-superpowers-poc
+
+See [`hdd-superpowers/README.md`](hdd-superpowers/README.md) for the clone-based and
+bundle-based alternatives.
+
 ## Contents
 
 - **`docs/superpowers/specs/2026-08-13-hdd-superpowers-design.md`** — the design spec: the
@@ -19,9 +30,10 @@ SkillHone) — see the design spec for full attribution.
 - **`docs/superpowers/plans/2026-08-13-hdd-superpowers-poc.md`** — the implementation plan
   that turned the spec into the 4 `SKILL.md` files, executed via
   `superpowers:subagent-driven-development` (per-task review, one final-review fix wave).
-- **`hdd-superpowers/`** — the actual deliverable: the 4 skill folders
-  (`skills/<name>/SKILL.md`), a `README.md` with install instructions, and `dist/` containing
-  the packaged `.skill` archives and a combined bundle zip.
+- **`hdd-superpowers/`** — the actual deliverable, and the plugin root: the 4 skill folders
+  (`skills/<name>/SKILL.md`), `.claude-plugin/plugin.json`, a `README.md` with install
+  instructions, and `dist/` containing the packaged `.skill` archives and a combined bundle zip.
+- **`.claude-plugin/marketplace.json`** — makes this repo installable as a plugin marketplace.
 
 ## Status
 

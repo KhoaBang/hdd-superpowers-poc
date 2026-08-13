@@ -1,0 +1,16 @@
+{
+  "name": "hdd-superpowers",
+  "description": "Hypothesis-driven development skill pack: framing-hypotheses -> planning-experiments -> executing-experiments -> deciding-hypotheses.",
+  "version": "0.1.0",
+  "author": {
+    "name": "KhoaBang"
+  },
+  "homepage": "https://github.com/KhoaBang/hdd-superpowers-poc",
+  "keywords": [
+    "hypothesis",
+    "experiment",
+    "evidence",
+    "hdd",
+    "superpowers"
+  ]
+}
