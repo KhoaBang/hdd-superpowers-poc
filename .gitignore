@@ -1,0 +1,7 @@
+.cache/
+.config/
+.npm/
+.npm-global/
+.ssh/
+.wget-hsts
+.gitconfig
