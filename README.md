@@ -13,17 +13,43 @@ SkillHone) — see the design spec for full attribution.
 ## Install from GitHub
 
 The 4 skills live in this repo's top-level `skills/` folder, which is both the plugin root and
-the layout `npx skills` discovers — so either installer works off the GitHub link directly.
+the layout `npx skills` discovers — so either installer works off the GitHub link directly, no
+subpath needed.
 
-As a Claude Code plugin (this repo is its own marketplace, via `.claude-plugin/`):
+### With `npx skills` (recommended)
+
+The [`skills`](https://github.com/vercel-labs/skills) CLI installs from GitHub into Claude
+Code, Codex, Cursor, OpenCode and others:
+
+    npx skills add KhoaBang/hdd-superpowers-poc
+
+It clones the repo, finds all 4 skills, and — when run inside a project — installs them to
+`.claude/skills/<name>/SKILL.md`, recording their source in a `skills-lock.json`. Useful flags:
+
+| Flag | Effect |
+| --- | --- |
+| `-l, --list` | show what the repo offers, install nothing |
+| `-s, --skill <name>` | install only some (repeatable, `'*'` for all) |
+| `-a, --agent claude-code` | pick the target agent instead of auto-detecting |
+| `-g, --global` | install user-level rather than project-level |
+| `--copy` | copy the files instead of symlinking them |
+| `-y, --yes` | skip the interactive picker |
+
+So a non-interactive, single-skill install looks like:
+
+    npx skills add KhoaBang/hdd-superpowers-poc --skill framing-hypotheses --agent claude-code -y
+
+To pick up newly installed skills in a running Claude Code session, run `/reload-skills`.
+Later, `npx skills update` refreshes them and `npx skills remove` uninstalls.
+
+Requires Node — the CLI declares `node >=22.20.0`.
+
+### As a Claude Code plugin
+
+This repo is also its own plugin marketplace (via `.claude-plugin/`):
 
     /plugin marketplace add KhoaBang/hdd-superpowers-poc
     /plugin install hdd-superpowers@hdd-superpowers-poc
-
-Or with the [`skills`](https://github.com/vercel-labs/skills) CLI, for Claude Code and other
-agents:
-
-    npx skills add KhoaBang/hdd-superpowers-poc
 
 See [`hdd-superpowers/README.md`](hdd-superpowers/README.md) for the clone-based and
 bundle-based alternatives.

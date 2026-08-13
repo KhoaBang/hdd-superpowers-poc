@@ -10,7 +10,33 @@ the person who gave you this pack for it.
 
 ## Install
 
-### Option A — from GitHub, as a Claude Code plugin (recommended)
+### Option A — from GitHub, with `npx skills` (recommended)
+
+The [`skills`](https://github.com/vercel-labs/skills) CLI installs straight from the GitHub
+link, into Claude Code, Codex, Cursor, OpenCode and others:
+
+    npx skills add KhoaBang/hdd-superpowers-poc
+
+It clones the repo, discovers all four skills from its top-level `skills/` folder, and — when
+run inside a project — installs them to `.claude/skills/<name>/SKILL.md`, recording their
+source in a `skills-lock.json`. Useful flags:
+
+  - `-l, --list` — show what the repo offers without installing anything
+  - `-s, --skill <name>` — install only some (repeatable; `'*'` for all)
+  - `-a, --agent claude-code` — pick the target agent instead of auto-detecting
+  - `-g, --global` — install user-level instead of project-level
+  - `--copy` — copy the files instead of symlinking them
+  - `-y, --yes` — skip the interactive picker
+
+A non-interactive, single-skill install:
+
+    npx skills add KhoaBang/hdd-superpowers-poc --skill framing-hypotheses --agent claude-code -y
+
+In a running Claude Code session, `/reload-skills` picks up what was just installed. Later,
+`npx skills update` refreshes and `npx skills remove` uninstalls. The CLI declares
+`node >=22.20.0`.
+
+### Option B — from GitHub, as a Claude Code plugin
 
 This repo doubles as a plugin marketplace, so Claude Code can install the pack straight from
 the GitHub link. In Claude Code, run:
@@ -23,21 +49,8 @@ if you prefer, or a local path to a clone of this repo. Update later with:
 
     /plugin marketplace update hdd-superpowers-poc
 
-The four skills are then discovered from the repo's top-level `skills/` folder — nothing needs
-to be copied into `~/.claude/skills/`.
-
-### Option B — from GitHub, with `npx skills`
-
-If you use a different agent (Codex, Cursor, OpenCode, …) or prefer a CLI, the
-[`skills`](https://github.com/vercel-labs/skills) tool installs straight from the GitHub link:
-
-    npx skills add KhoaBang/hdd-superpowers-poc
-
-It discovers all four skills from the repo's top-level `skills/` folder. Add
-`--agent claude-code` to force the target agent, `--skill <name>` to install only some, and
-`--yes` to skip the interactive picker:
-
-    npx skills add KhoaBang/hdd-superpowers-poc --skill framing-hypotheses --agent claude-code --yes
+The four skills are discovered from the same top-level `skills/` folder — nothing needs to be
+copied into `~/.claude/skills/`.
 
 ### Option C — from GitHub, by cloning into your skills directory
 
