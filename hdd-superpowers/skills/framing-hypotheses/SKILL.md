@@ -103,4 +103,4 @@ disconfirming observation is as concrete as the supporting one.
 
 ## Terminal State
 
-Invoke `planning-experiments`.
+invoke `planning-experiments`.

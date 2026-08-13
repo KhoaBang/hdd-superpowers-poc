@@ -42,7 +42,7 @@ information gain.
 6. Append a `## Experiment Directions Considered` section to `HYP-NNN.md` listing every
    direction from step 3, and update its `state` to `PLANNED`. Do not touch any other section of
    `HYP-NNN.md`.
-7. Invoke `executing-experiments` once per newly-written `EXP-NNN.md`.
+7. invoke `executing-experiments` once per newly-written `EXP-NNN.md`.
 
 ## Artifact: EXP-NNN.md (frozen contract)
 
@@ -108,10 +108,10 @@ Appended to the bottom of the hypothesis file, after its frozen contract fields:
 - [ ] Metric names in each `EXP-NNN.md` are the exact strings `executing-experiments` must
       report back — no synonyms, no rewording later
 - [ ] Rejected directions are recorded in `HYP-NNN.md`, not just selected ones
-- [ ] `HYP-NNN.md`'s Claim/Rationale/Critical Assumptions/Scope/Supporting/Disconfirming
+- [ ] `HYP-NNN.md`'s Claim/Rationale/Critical Assumptions/Scope/Supporting Observation/Disconfirming Observation
       sections are untouched
 
 ## Terminal State
 
-Invoke `executing-experiments` once per new `EXP-NNN.md` (independent experiments may be
+invoke `executing-experiments` once per new `EXP-NNN.md` (independent experiments may be
 dispatched in parallel — see `superpowers:dispatching-parallel-agents`).
