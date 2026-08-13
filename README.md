@@ -12,11 +12,18 @@ SkillHone) — see the design spec for full attribution.
 
 ## Install from GitHub
 
-This repo is also a Claude Code plugin marketplace (`.claude-plugin/marketplace.json`), so the
-skill pack installs directly from the GitHub link:
+The 4 skills live in this repo's top-level `skills/` folder, which is both the plugin root and
+the layout `npx skills` discovers — so either installer works off the GitHub link directly.
+
+As a Claude Code plugin (this repo is its own marketplace, via `.claude-plugin/`):
 
     /plugin marketplace add KhoaBang/hdd-superpowers-poc
     /plugin install hdd-superpowers@hdd-superpowers-poc
+
+Or with the [`skills`](https://github.com/vercel-labs/skills) CLI, for Claude Code and other
+agents:
+
+    npx skills add KhoaBang/hdd-superpowers-poc
 
 See [`hdd-superpowers/README.md`](hdd-superpowers/README.md) for the clone-based and
 bundle-based alternatives.
@@ -30,10 +37,12 @@ bundle-based alternatives.
 - **`docs/superpowers/plans/2026-08-13-hdd-superpowers-poc.md`** — the implementation plan
   that turned the spec into the 4 `SKILL.md` files, executed via
   `superpowers:subagent-driven-development` (per-task review, one final-review fix wave).
-- **`hdd-superpowers/`** — the actual deliverable, and the plugin root: the 4 skill folders
-  (`skills/<name>/SKILL.md`), `.claude-plugin/plugin.json`, a `README.md` with install
-  instructions, and `dist/` containing the packaged `.skill` archives and a combined bundle zip.
-- **`.claude-plugin/marketplace.json`** — makes this repo installable as a plugin marketplace.
+- **`skills/<name>/SKILL.md`** — the actual deliverable: the 4 skills, at the repo root so that
+  both the plugin loader and `npx skills` find them without any subpath.
+- **`.claude-plugin/`** — `marketplace.json` (makes this repo an installable marketplace) and
+  `plugin.json` (makes the repo root itself the plugin).
+- **`hdd-superpowers/`** — packaging only: the `README.md` that ships inside the bundle, and
+  `dist/` containing the packaged `.skill` archives and the combined bundle zip.
 
 ## Status
 

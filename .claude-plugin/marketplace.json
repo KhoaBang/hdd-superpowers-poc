@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "hdd-superpowers",
-      "source": "./hdd-superpowers",
+      "source": "./",
       "description": "Hypothesis-driven development skill pack: framing-hypotheses -> planning-experiments -> executing-experiments -> deciding-hypotheses.",
       "version": "0.1.0",
       "author": {

@@ -23,17 +23,30 @@ if you prefer, or a local path to a clone of this repo. Update later with:
 
     /plugin marketplace update hdd-superpowers-poc
 
-The four skills are then discovered from the plugin's `skills/` folder — nothing needs to be
-copied into `~/.claude/skills/`.
+The four skills are then discovered from the repo's top-level `skills/` folder — nothing needs
+to be copied into `~/.claude/skills/`.
 
-### Option B — from GitHub, by cloning into your skills directory
+### Option B — from GitHub, with `npx skills`
 
-If your runtime does not support plugins, clone the repo and copy the skill folders in:
+If you use a different agent (Codex, Cursor, OpenCode, …) or prefer a CLI, the
+[`skills`](https://github.com/vercel-labs/skills) tool installs straight from the GitHub link:
+
+    npx skills add KhoaBang/hdd-superpowers-poc
+
+It discovers all four skills from the repo's top-level `skills/` folder. Add
+`--agent claude-code` to force the target agent, `--skill <name>` to install only some, and
+`--yes` to skip the interactive picker:
+
+    npx skills add KhoaBang/hdd-superpowers-poc --skill framing-hypotheses --agent claude-code --yes
+
+### Option C — from GitHub, by cloning into your skills directory
+
+If your runtime supports neither, clone the repo and copy the skill folders in:
 
     git clone https://github.com/KhoaBang/hdd-superpowers-poc.git /tmp/hdd-poc
-    cp -r /tmp/hdd-poc/hdd-superpowers/skills/* ~/.claude/skills/
+    cp -r /tmp/hdd-poc/skills/* ~/.claude/skills/
 
-### Option C — from the packaged bundle
+### Option D — from the packaged bundle
 
 Extract the *contents* of this bundle's `skills/` folder — the four `<name>/` folders
 themselves, not the `skills/` folder wrapping them — into your personal skills directory
