@@ -37,8 +37,8 @@ information gain.
 4. For each `selected` direction, write a frozen `docs/hdd/experiments/EXP-NNN.md` contract (see
    Artifact below). `NNN` = `max(existing NNN in docs/hdd/experiments/) + 1` per file, zero-padded
    to 3 digits.
-5. If this is a replacement pass (an earlier `EXP-0XX` came back `INVALID`), add an
-   HTML-comment `<!-- replaces: EXP-0XX -->` line directly under that new file's frontmatter.
+5. If this is a replacement pass (an earlier `EXP-0XX` came back `INVALID`), add `replaces:
+   EXP-0XX` to the frontmatter's YAML block.
 6. Append a `## Experiment Directions Considered` section to `HYP-NNN.md` listing every
    direction from step 3, and update its `state` to `PLANNED`. Do not touch any other section of
    `HYP-NNN.md`.
@@ -51,8 +51,8 @@ information gain.
 id: EXP-031
 parent_hypothesis: HYP-017
 state: PLANNED
+replaces: EXP-0XX   # only present on replacement experiments
 ---
-<!-- replaces: EXP-0XX   (only present on replacement experiments) -->
 
 ## Question
 [what this experiment discriminates]
