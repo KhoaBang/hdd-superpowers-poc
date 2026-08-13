@@ -40,10 +40,13 @@ INVALID — do not round up because the metrics look good anyway.
    - `INVALID` if any self-check item is false, or if the contract's `Invalid If` condition is
      met.
    - `VALID` otherwise.
-8. Write `docs/hdd/evidence/EVIDENCE-NNN.md` (Artifact below). Do not write a verdict on the
+8. If `docs/hdd/evidence/EVIDENCE-NNN.md` already exists, stop — do not overwrite it. Evidence
+   is written once and is immutable; an experiment that needs re-running gets a new `EXP-NNN`
+   via `planning-experiments`, not a second write to the same `EVIDENCE-NNN`.
+9. Write `docs/hdd/evidence/EVIDENCE-NNN.md` (Artifact below). Do not write a verdict on the
    hypothesis anywhere in this file — only what was observed.
-9. Sibling check (see Terminal State) — this skill owns the handoff, since this PoC has no
-   `using-hdd` router.
+10. Sibling check (see Terminal State) — this skill owns the handoff, since this PoC has no
+    `using-hdd` router.
 
 ## Artifact: EVIDENCE-NNN.md
 
@@ -71,16 +74,18 @@ state: VALID
   empty list if none]
 
 ## Self Check
-- [ ] contract_matched
-- [ ] baseline_unchanged
-- [ ] treatment_isolated_variable
-- [ ] dataset_version_identifiable
-- [ ] metric_calculation_reproducible
-- [ ] raw_outputs_exist
-- [ ] no_post_hoc_threshold_modification
-- [ ] confounders_documented
+- [x] contract_matched
+- [x] baseline_unchanged
+- [x] treatment_isolated_variable
+- [x] dataset_version_identifiable
+- [x] metric_calculation_reproducible
+- [x] raw_outputs_exist
+- [x] no_post_hoc_threshold_modification
+- [x] confounders_documented
 
-<!-- invalid_reason: required if state: INVALID -->
+## Invalid Reason
+[required if state: INVALID — why the evidence is inadmissible; omit this section entirely if
+state: VALID]
 ```
 
 ## Checklist

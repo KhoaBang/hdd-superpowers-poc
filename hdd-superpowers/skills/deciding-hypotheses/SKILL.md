@@ -31,11 +31,20 @@ edit a REFUTED HYP-NNN.md to rescue it.
    `Disconfirming Observation`. For each `Critical Assumption`, state explicitly whether the
    evidence shows it held or was violated — an assumption quietly violated invalidates the
    reasoning even if the headline metric looks good.
-4. Reduce to one outcome: `APPROVED` if the valid evidence matches `Supporting Observation` and
-   no critical assumption was violated; `REFUTED` otherwise — including when the evidence is
-   simply inconclusive relative to what was pre-registered. There is no third option.
-5. Write `docs/hdd/decisions/DECISION-NNN.md` (Artifact below), same `NNN` as `HYP-NNN`.
-6. Set `HYP-NNN.state` to the same outcome.
+4. Reduce to one outcome, in this order:
+   - `REFUTED` if ANY `VALID` evidence matches `Disconfirming Observation` — even if other
+     `VALID` evidence matches `Supporting Observation`. One disconfirming piece of evidence
+     refutes the hypothesis regardless of how much supporting evidence sits alongside it.
+   - Otherwise, `APPROVED` only if EVERY `VALID` evidence matches `Supporting Observation` AND
+     no critical assumption was violated.
+   - Otherwise (nothing matches either pattern cleanly — genuinely inconclusive relative to
+     what was pre-registered) `REFUTED`, per the "no third option" rule below.
+
+   There is no third option.
+5. If `docs/hdd/decisions/DECISION-NNN.md` already exists, stop — do not overwrite it. A
+   decision is written once and is immutable; there is nothing to re-decide by rewriting it.
+6. Write `docs/hdd/decisions/DECISION-NNN.md` (Artifact below), same `NNN` as `HYP-NNN`.
+7. Set `HYP-NNN.state` to the same outcome.
 
 ## Artifact: DECISION-NNN.md
 

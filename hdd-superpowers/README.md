@@ -10,7 +10,8 @@ the person who gave you this pack for it.
 
 ## Install
 
-Extract the `skills/` folder from this bundle into your personal skills directory
+Extract the *contents* of this bundle's `skills/` folder — the four `<name>/` folders
+themselves, not the `skills/` folder wrapping them — into your personal skills directory
 (`~/.claude/skills/`), so you end up with:
 
     ~/.claude/skills/framing-hypotheses/SKILL.md
@@ -18,8 +19,14 @@ Extract the `skills/` folder from this bundle into your personal skills director
     ~/.claude/skills/executing-experiments/SKILL.md
     ~/.claude/skills/deciding-hypotheses/SKILL.md
 
-Alternatively, each skill also ships as its own standalone `.skill` file (`dist/<name>.skill`)
-if your runtime supports installing skills one at a time.
+Do not copy the `skills/` folder itself in — that produces a nested
+`~/.claude/skills/skills/<name>/SKILL.md`, which will not be picked up. For example:
+
+    unzip hdd-superpowers-bundle.zip -d /tmp/hdd && cp -r /tmp/hdd/skills/* ~/.claude/skills/
+
+Alternatively, each skill is also provided separately as its own standalone `.skill` file
+(`<name>.skill`, distributed alongside this bundle rather than inside it) if your runtime
+supports installing skills one at a time.
 
 ## Status
 
